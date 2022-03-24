@@ -10,7 +10,7 @@ pipeline{
                     sh "apt-get -y install zip"
                     sh "apt-get -y install unzip"
                     sh "zip -r  aws.zip ."
-                    deployLambda([alias: '', artifactLocation: 'aws.zip', awsAccessKeyId: "${AWS_ACCESS_KEY}", awsRegion: ' EU_WEST_3("eu-west-3", "EU (Paris)")', 
+                    deployLambda([alias: '', artifactLocation: 'aws.zip', awsAccessKeyId: "${AWS_ACCESS_KEY}", awsRegion: "EU (Paris)", 
                     awsSecretKey: "${AWS_SECRET_KEY}", deadLetterQueueArn: '', description: 'Chameleon', environmentConfiguration: [kmsArn: ''], 
                     functionName: 'test-chameleon-function', handler: 'lambda_function.lambda_handler', memorySize: '', 
                     role: 'arn:aws:iam::776061104128:role/service-role/github-to-lambda-role-9m7w1o77', runtime: 'python3.9', securityGroups: '', subnets: '', timeout: '', updateMode: 'code'])
